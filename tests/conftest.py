@@ -66,121 +66,115 @@ def create_app():
 def full_input_record():
     """Full record data as dict coming from the external world."""
     return {
-        "_access": {
+        "access": {
             "metadata_restricted": False,
-            "files_restricted": False
+            "files_restricted": False,
+            "owners": [1],
+            "access_right": "open",
+            "created_by": 1,
         },
-        "_created_by": 2,  # TODO: Revisit with deposit
-        "_default_preview": "previewer one",
-        "_internal_notes": [{
-            "user": "inveniouser",
-            "note": "RDM record",
-            "timestamp": "2020-02-01"
-        }],
-        "_owners": [1],  # TODO: Revisit with deposit
-        "access_right": "open",
-        "embargo_date": "2022-12-31",
-        "contact": "info@inveniosoftware.org",
-        "resource_type": {
-            "type": "image",
-            "subtype": "image-photo"
-        },
-        "identifiers": {
-            "DOI": "10.5281/zenodo.9999999",
-            "arXiv": "9999.99999"
-        },
-        "creators": [
-            {
-                "name": "Julio Cesar",
+        "metadata": {
+            "creators": [
+                {
+                    "name": "Julio Cesar",
+                    "type": "Personal",
+                    "given_name": "Julio",
+                    "family_name": "Cesar",
+                    "identifiers": {
+                        "Orcid": "0000-0002-1825-0097"
+                    },
+                    "affiliations": [{
+                        "name": "Entity One",
+                        "identifiers": {
+                            "ror": "03yrm5c26"
+                        }
+                    }]
+                },
+                {
+                    "name": "California Digital Library",
+                    "type": "Organizational",
+                    "identifiers": {
+                        "ror": "03yrm5c26",
+                    }
+                }
+            ],
+            "contributors": [{
+                "name": "Maximo Decimo Meridio",
                 "type": "Personal",
-                "given_name": "Julio",
-                "family_name": "Cesar",
+                "given_name": "Maximo",
+                "family_name": "Decimo Meridio",
                 "identifiers": {
-                    "Orcid": "0000-0002-1825-0097"
+                    "Orcid": "0000-0002-1825-0097",
                 },
                 "affiliations": [{
                     "name": "Entity One",
                     "identifiers": {
                         "ror": "03yrm5c26"
                     }
-                }]
-            },
-            {
-                "name": "California Digital Library",
-                "type": "Organizational",
-                "identifiers": {
-                    "ror": "03yrm5c26",
-                }
-            }
-        ],
-        "titles": [{
-            "title": "A Romans story",
-            "type": "Other",
-            "lang": "eng"
-        }],
-        "publication_date": "2020-06-01",
-        "subjects": [{
-            "subject": "Romans",
-            "identifier": "subj-1",
-            "scheme": "no-scheme"
-        }],
-        "contributors": [{
-            "name": "Maximo Decimo Meridio",
-            "type": "Personal",
-            "given_name": "Maximo",
-            "family_name": "Decimo Meridio",
+                }],
+                "role": "RightsHolder"
+            }],
+            "dates": [{
+                "start": "2020-06-01",
+                "end":  "2021-06-01",
+                "description": "Random test date",
+                "type": "Other"
+            }],
+            "descriptions": [{
+                "description": "A story on how Julio Cesar relates to Gladiator.",
+                "type": "Abstract",
+                "lang": "eng"
+            }],
             "identifiers": {
-                "Orcid": "0000-0002-1825-0097",
+                "DOI": "10.5281/zenodo.9999999",
+                "arXiv": "9999.99999"
             },
-            "affiliations": [{
-                "name": "Entity One",
-                "identifiers": {
-                    "ror": "03yrm5c26"
+            "language": "eng",
+            "licenses": [{
+                "license": "Berkeley Software Distribution 3",
+                "uri": "https://opensource.org/licenses/BSD-3-Clause",
+                "identifier": "BSD-3",
+                "scheme": "BSD-3",
+            }],
+            "locations": [{
+                "point": {
+                    "lat": 41.902604,
+                    "lon": 12.496189
+                },
+                "place": "Rome",
+                "description": "Rome, from Romans"
+            }],
+            "publication_date": "2020-06-01",
+            "references": [{
+                "reference_string": "Reference to something et al.",
+                "identifier": "9999.99988",
+                "scheme": "GRID"
+            }],
+            "related_identifiers": [{
+                "identifier": "10.5281/zenodo.9999988",
+                "scheme": "DOI",
+                "relation_type": "Requires",
+                "resource_type": {
+                    "type": "image",
+                    "subtype": "image-photo"
                 }
             }],
-            "role": "RightsHolder"
-        }],
-        "dates": [{
-            "start": "2020-06-01",
-            "end":  "2021-06-01",
-            "description": "Random test date",
-            "type": "Other"
-        }],
-        "language": "eng",
-        "related_identifiers": [{
-            "identifier": "10.5281/zenodo.9999988",
-            "scheme": "DOI",
-            "relation_type": "Requires",
             "resource_type": {
                 "type": "image",
                 "subtype": "image-photo"
-            }
-        }],
-        "version": "v0.0.1",
-        "licenses": [{
-            "license": "Berkeley Software Distribution 3",
-            "uri": "https://opensource.org/licenses/BSD-3-Clause",
-            "identifier": "BSD-3",
-            "scheme": "BSD-3",
-        }],
-        "descriptions": [{
-            "description": "A story on how Julio Cesar relates to Gladiator.",
-            "type": "Abstract",
-            "lang": "eng"
-        }],
-        "locations": [{
-            "point": {
-                "lat": 41.902604,
-                "lon": 12.496189
             },
-            "place": "Rome",
-            "description": "Rome, from Romans"
-        }],
-        "references": [{
-            "reference_string": "Reference to something et al.",
-            "identifier": "9999.99988",
-            "scheme": "GRID"
-        }]
+            "subjects": [{
+                "subject": "Romans",
+                "identifier": "subj-1",
+                "scheme": "no-scheme"
+            }],
+            "titles": [{
+                "title": "A Romans story",
+                "type": "Other",
+                "lang": "eng"
+            }],
+            "version": "v0.0.1",
+        }
     }
 
 
@@ -213,7 +207,6 @@ def minimal_input_record():
                 "type": "image",
                 "subtype": "image-photo"
             },
-            # Technically not required
             "creators": [{
                 "name": "John Doe",
                 "type": "Personal"
