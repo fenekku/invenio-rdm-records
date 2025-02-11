@@ -20,7 +20,17 @@ from invenio_app.factory import create_api
 
 
 @pytest.fixture(scope="module")
-def create_app(instance_path):
+def extra_entry_points():
+    return {
+        "invenio_base.blueprints": [
+            "invenio_app_rdm_records = mock_module_in_rsrc:create_invenio_app_rdm_records_blueprint",  # noqa
+            "invenio_app_rdm_requests = mock_module_in_rsrc:create_invenio_app_rdm_requests_blueprint",  # noqa
+        ],
+    }
+
+
+@pytest.fixture(scope="module")
+def create_app(instance_path, entry_points):
     """Application factory fixture."""
     return create_api
 
