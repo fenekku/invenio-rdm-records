@@ -555,7 +555,7 @@ class RDMGrantGroupAccessResourceConfig(RecordResourceConfig, ConfiguratorMixin)
 class RDMCommunityRecordsResourceConfig(RecordResourceConfig, ConfiguratorMixin):
     """Community's records resource config."""
 
-    blueprint_name = "community-records"
+    blueprint_name = "community_records"
     url_prefix = "/communities"
     routes = {"list": "/<pid_value>/records"}
 
@@ -568,7 +568,7 @@ class RDMCommunityRecordsResourceConfig(RecordResourceConfig, ConfiguratorMixin)
 class RDMRecordCommunitiesResourceConfig(CommunityResourceConfig, ConfiguratorMixin):
     """Record communities resource config."""
 
-    blueprint_name = "records-community"
+    blueprint_name = "record_communities"
     url_prefix = "/records"
     routes = {
         "list": "/<pid_value>/communities",
@@ -586,7 +586,7 @@ class RDMRecordCommunitiesResourceConfig(CommunityResourceConfig, ConfiguratorMi
 class RDMRecordRequestsResourceConfig(ResourceConfig, ConfiguratorMixin):
     """Record communities resource config."""
 
-    blueprint_name = "records-requests"
+    blueprint_name = "record_requests"
     url_prefix = "/records"
     routes = {"list": "/<record_pid>/requests"}
 
